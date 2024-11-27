@@ -9,11 +9,19 @@ export interface CarouselItem {
 }
 
 export interface CartItems {
-  id: number;
-  itemName: string;
-  imageSrc: string;
+  _id: string;
+  name: string;
+  image: string;
   price: number;
   description: string;
+  shop: {
+    nickname: string;
+    _id: string;
+  };
+  checked?: boolean;
+}
+
+export interface Shop {
   shopName: string;
-  purchaseDate: string;
+  items: CartItems[];
 }

@@ -116,16 +116,13 @@ const MyPage = () => {
   useEffect(() => {
     let dates: string[] = [];
 
-    const uniqueDates = [
-      ...new Set(purchasedItems.map((item) => item.purchaseDate)),
-    ];
-    dates = uniqueDates;
+    const uniqueDates = [...new Set(purchasedItems.map((item) => item))];
+    // dates = uniqueDates; // 구매 목록 날짜 배열₩
 
     const groupedCartItems = dates.map((date) => ({
       date,
-      items: purchasedItems.filter(
-        (cartItem) => cartItem.purchaseDate === date,
-      ),
+      // 나중에 구매 날짜로 변경
+      items: purchasedItems.filter((cartItem) => cartItem._id === date),
     }));
 
     setFilteredCartItems(groupedCartItems);
@@ -218,8 +215,8 @@ const MyPage = () => {
                       <Link to="/detail">
                         <CartItem
                           page="mypage"
-                          imageSrc={cartItem.imageSrc}
-                          title={cartItem.itemName}
+                          imageSrc={cartItem.image}
+                          title={cartItem.name}
                           description={`${cartItem.price.toLocaleString()} 원`}
                         />
                       </Link>
@@ -228,7 +225,7 @@ const MyPage = () => {
                         <S.ShopIconCircle>
                           <S.ShopIcon />
                         </S.ShopIconCircle>
-                        {cartItem.shopName}
+                        {cartItem.shop.nickname}
                       </S.Shop>
                     </S.CartGrid>
                   ))}

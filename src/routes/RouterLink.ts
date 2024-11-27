@@ -7,13 +7,9 @@ const ROUTE_LINK = {
   ADD_PRODUCT: { path: "/addproduct" },
   EDIT_PRODUCT: { path: "/editproduct" },
   MYPAGE: { path: "/users/my" },
-  PASSWORD_CHECK: { path: "/users/my/password-check" },
-  INFO_EDIT: { path: "/users/my/info-edit" },
+  PASSWORD_CHECK: { path: "/users/my/passwordcheck" },
+  INFO_EDIT: { path: "/users/my/edituser" },
   PAYMENT: { path: "/payment" },
-  PAYMENT_COMPLETE: { path: "/payment-complete" },
-  BANK_PAYMENT_COMPLETE: { path: "/bank/payment-complete" },
-  PAYMENT_FAIL: { path: "/payment-fail" },
-  PAYMENT_PROCESSING: { path: "/payment-processing" },
 };
 
 export default ROUTE_LINK;
